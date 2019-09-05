@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Aux from "../../../hoc/Auxiliary";
 import Button from "../../UI/Button/Button";
-import { render } from "react-dom";
 
 class OrderSummary extends Component {
   // This can be a functional component and not necessarily class based component
