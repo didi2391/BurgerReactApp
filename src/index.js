@@ -3,13 +3,14 @@ import ReactDOM from "react-dom";
 
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
 import "./styles.css";
 import App from "../src/App";
 import burgerBuilderReducer from "./store/reducers/BurgerBuilder";
 
-const store = createStore(burgerBuilderReducer);
+const store = createStore(burgerBuilderReducer, applyMiddleware(thunk));
 
 const app = (
   <Provider store={store}>

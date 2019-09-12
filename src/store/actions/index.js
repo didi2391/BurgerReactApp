@@ -1,3 +1,7 @@
-export { addIngredient, removeIngredient } from "./BurgerBuilder";
+export {
+  addIngredient,
+  removeIngredient,
+  iniIngredients
+} from "./BurgerBuilder";
 
-export {} from "./order";
+export { purchaseBurger } from "./order";
