@@ -1,7 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  order: [],
+  orders: [],
   loading: false,
   purchased: false
 };
@@ -23,6 +23,7 @@ const reducer = (state = initialState, action) => {
         ...action.orderData,
         id: action.orderId
       };
+
       return {
         ...state,
         loading: false,
