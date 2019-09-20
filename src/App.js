@@ -9,15 +9,15 @@ import * as actions from '../src/store/actions/index';
 import asyncComponent from './hoc/asyncComponent/asyncComponent';
 
 
-const Checkout = asyncComponent(() => {
+const asyncCheckout = asyncComponent(() => {
   return import('./containers/Checkout/Checkout');
 });
 
-const Orders = asyncComponent(() => {
+const asyncOrders = asyncComponent(() => {
   return import('./containers/Orders/Orders');
 });
 
-const Auth = asyncComponent(() => {
+const asyncAuth = asyncComponent(() => {
   return import('./containers/Auth/Auth');
 });
 
@@ -29,7 +29,7 @@ const App = props => {
 
   let routes = (
     <Switch>
-      <Route path="/auth" component={<Auth />} />
+      <Route path="/auth" component={asyncAuth} />
       <Route path="/" exact component={BurgerBuilder} />
       <Redirect to="/" />
     </Switch>
@@ -38,9 +38,9 @@ const App = props => {
   if (props.isAuthenticated) {
     routes = (
       <Switch>
-        <Route path="/checkout" component={<Checkout />} />
-        <Route path="/auth" component={<Auth />} />
-        <Route path="/orders" component={<Orders />} />
+        <Route path="/checkout" component={asyncCheckout} />
+        <Route path="/auth" component={asyncAuth} />
+        <Route path="/orders" component={asyncOrders} />
         <Route path="/logout" component={Logout} />
         <Route path="/" exact component={BurgerBuilder} />
         <Redirect to="/"  />
